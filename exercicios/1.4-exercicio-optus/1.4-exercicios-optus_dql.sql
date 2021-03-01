@@ -17,7 +17,7 @@ WHERE Usuarios.Permissao LIKE 'Administrador';
 
 SELECT Albuns.Titulo,Albuns.Ativo,Albuns.Localizacao,Albuns.DataLancamento,Albuns.QtdMinutos FROM Albuns
 
-WHERE Albuns.DataLancamento LIKE '%2020';
+WHERE Albuns.DataLancamento > '%/2000';
 
 --listar os dados de um usuário através do e-mail e senha
 SELECT	Usuarios.Nome, Usuarios.Email,Usuarios.Permissao  From Usuarios
@@ -32,7 +32,8 @@ INNER JOIN Estilos
 ON AlbunsEstilo.IdEstilo= Estilos.IdEstilo
 LEFT JOIN Artistas
 ON Albuns.IdArtista= Artistas.IdArtista
-WHERE Albuns.Ativo LIKE '%Sim';
+WHERE Albuns.Ativo LIKE '%Sim'
+ORDER BY Artistas.Nome;
 
 
 
