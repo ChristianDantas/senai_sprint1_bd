@@ -15,9 +15,8 @@ SELECT Classe.NomeClasse FROM Classe;
 SELECT * FROM Personagens;
 
 --Realizar a contagem de quantas habilidades estão cadastradas;
-SELECT * FROM Habilidades
-SELECT COUNT(*) FROM Habilidades;
-
+SELECT IdHabilidade FROM Habilidades
+SELECT COUNT(IdHabilidade) FROM Habilidades;
 -- Selecionar somente os id’s das habilidades classificando-os por ordem crescente;
 
 SELECT  Habilidades.IdHabilidade FROM Habilidades
@@ -50,8 +49,8 @@ LEFT JOIN Habilidades
 ON ClasseHabilidade.IdHabilidade= Habilidades.IdHabilidade;
 
 --Selecionar todas as habilidades e suas classes (somente as que possuem correspondência);
-SELECT Classe.NomeClasse AS Classe, Habilidades.NomeHabilidade AS Habilidade FROM Classe 
-RIGHT JOIN ClasseHabilidade
+SELECT Habilidades.NomeHabilidade AS Habilidade, Classe.NomeClasse AS Classe FROM Classe 
+LEFT JOIN ClasseHabilidade
 ON Classe.IdClasse= ClasseHabilidade.IdClasse
 INNER JOIN Habilidades
 ON ClasseHabilidade.IdHabilidade= Habilidades.IdHabilidade;
